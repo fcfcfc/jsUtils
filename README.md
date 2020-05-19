@@ -8,7 +8,8 @@
 - [使用](#使用)  
 - [方法](#方法)  
   - [数组相关方法](#数组相关方法)   
-    - [sliceArrByNum](#slicearrbynumarr-num)  
+    - [sliceArrByNum分割数组](#slicearrbynumarr-num)  
+    - [getCountOccurrences获取数组中某一项出现的次数](#getcountoccurrencesarr-item-index)  
     
 ## 安装  
 
@@ -51,3 +52,33 @@ console.log(returnArr); //[[1,2,3],[4]]
 - *注意事项*  
 
 1. 此方法仅适用于简单数组  
+
+---
+
+#### ***getCountOccurrences(arr, item, index)***  
+  
+- *方法介绍*  
+
+根据传入的项目和获取数组中某一项出现的次数，只记和它相邻的次数  
+
+- *参数介绍*  
+
+1. arr：要分割的数组  
+2. num：几个元素为一份  
+
+- *示例*  
+
+```sh
+let arr = [1,2,3,4];
+let num = 3;
+let returnArr = Main.sliceArrByNum(arr, num);
+console.log(returnArr); //[[1,2,3],[4]]
+```  
+
+- *注意事项*  
+
+1. 此方法仅适用于简单数组  
+
+---
+
+

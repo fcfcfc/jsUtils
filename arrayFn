@@ -1,9 +1,15 @@
 export default {
     /**
-     * 根据num，分割数组
-     * @param arr 数组
+     * 根据传入的num，将指定数组按照每num为一份进行分割，返回分割好的数组
+     *
+     * let arr = [1,2,3,4];
+     * let num = 3;
+     * let returnArr = Main.sliceArrByNum(arr, num);
+     * console.log(returnArr); //[[1,2,3],[4]]
+     *
+     * @param arr 要分割的数组
      * @param num 几个元素为一份
-     * @returns {[]} 分割好后的数组，比如sliceArrByNum([1,2,3,4], 3)则返回[[1,2,3],[4]]
+     * @returns {[]} 分割好后的数组
      */
     sliceArrByNum(arr, num) {
         if(num <= 0) return [];
