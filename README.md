@@ -8,7 +8,7 @@
 - [使用](#使用)  
 - [方法](#方法)  
   - [数组相关方法](#数组相关方法)   
-    - [sliceArrByNum](#sliceArrByNum)  
+    - [sliceArrByNum](#slicearrbynumarr-num)  
     
 ## 安装  
 
