@@ -1,0 +1,151 @@
+export default {
+    /**
+     * 根据num，分割数组
+     * @param arr 数组
+     * @param num 几个元素为一份
+     * @returns {[]} 分割好后的数组，比如sliceArrByNum([1,2,3,4], 3)则返回[[1,2,3],[4]]
+     */
+    sliceArrByNum(arr, num) {
+        if(num <= 0) return [];
+        let result = [];
+        for (let i = 0, len = arr.length; i < len; i += num) {
+            result.push(arr.slice(i, i + num));
+        }
+        return result;
+    },
+    /**
+     * 获取数组中某一项出现的次数，只记和它相邻的次数
+     * @param arr 数组
+     * @param item 判断的项目
+     * @param index 要判断的项目的index
+     * @returns {*} 出现次数，比如getCountOccurrences([1,2,3,4,5,1,1,2], 2, 1)返回1，getCountOccurrences([1,2,2,4,5,1,1,2], 2, 1)返回2
+     */
+    getCountOccurrences(arr, item, index) {
+        let beforeIndex = index;
+        let afterIndex = index;
+        let flagBefore = true;
+        let flagAfter = true;
+
+        while (flagBefore) {
+            if (arr[beforeIndex - 1] === item) {
+                beforeIndex--;
+            } else {
+                flagBefore = false;
+            }
+        }
+        while (flagAfter) {
+            if (arr[afterIndex + 1] === item) {
+                afterIndex++;
+            } else {
+                flagAfter = false;
+            }
+        }
+        return arr.reduce((a, v, currentIndex) => (currentIndex >= beforeIndex && currentIndex <= afterIndex && v === item) ? a + 1 : a + 0, 0)
+    },
+    /**
+     * 将数组中指定位置元素前移一位，直接修改数组
+     * @param arr 数组
+     * @param index 指定位置
+     */
+    arrItemUpGo(arr, index) {
+        if (index !== 0) {
+            arr[index] = arr.splice(index - 1, 1, arr[index])[0];
+        } else {
+            arr.push(arr.shift());
+        }
+    },
+    /**
+     * 将数组中指定位置元素后移一位，直接修改数组
+     * @param arr 数组
+     * @param index 指定位置
+     */
+    arrItemDownGo(arr, index) {
+        if (index !== arr.length - 1) {
+            arr[index] = arr.splice(index + 1, 1, arr[index])[0];
+        } else {
+            arr.unshift(arr.splice(index, 1)[0]);
+        }
+    },
+    /**
+     * 求给定数组的平均值
+     * @param arr 数组
+     * @returns {number} 返回平均值
+     */
+    arrAverageNum(arr) {
+        return arr.reduce((total, num) => total + num) / arr.length;
+    },
+    /**
+     * 根据指定字段，对数组分组
+     * @param arr
+     * @param key
+     * @returns {*[]}
+     */
+    arrGroupBy(arr, key) {
+        function groupBy(array, f) {
+            const groups = {};
+            array.forEach(function (o) {
+                const group = JSON.stringify(f(o));
+                groups[group] = groups[group] || [];
+                groups[group].push(o);
+            });
+            return Object.keys(groups).map(function (group) {
+                return groups[group];
+            });
+        }
+        return groupBy(arr, function (item) {
+            return [item[key]];
+        });
+    },
+    /**
+     * 求给定数组的标准差（离散程度）
+     * @param arr 数组
+     * @returns {number} 数组的标准差（离散程度）值
+     */
+    getStandardDeviation(arr) {
+        let length = arr.length;
+        let mean = this.arrAverageNum(arr); //平均值
+        let deviations = arr.map(x => x - mean);//偏差
+
+        return Math.sqrt(deviations.map(x => x * x).reduce((total, num) => total + num) / (length - 1));
+    },
+    /**
+     * 两个数组对比，取出不同的值（简单数组）
+     * @param arrA
+     * @param arrB
+     * @returns {*}
+     */
+    getArrDifference(arrA, arrB) {
+        return arrA.concat(arrB).filter(function(v, i, arr) {
+            return arr.indexOf(v) === arr.lastIndexOf(v);
+        });
+    },
+    /**
+     * 根据指定的key，获取两个数组的差集（复杂数组）
+     * @param arr1
+     * @param arr2
+     * @param keyName
+     */
+    getDifFromToArrByKey(arr1, arr2, keyName) {
+        return arr2.filter(f => arr1.every(s => s[keyName] !== f[keyName]))
+    },
+    /**
+     * 根据指定的key，对数组去重（对象数组）
+     * @param arr
+     * @param key
+     */
+    objArrayDuplicateByKey(arr, key) {
+        return arr.reduce((prev, element) => {
+            if(!prev.find(el => el[key] === element[key])) prev.push(element)
+            return prev
+        },[])
+    },
+    /**
+     * 根据指定的key，获取两个数组的并集（复杂数组）
+     * @param arr1
+     * @param arr2
+     * @param keyName
+     */
+    getConcatFromTwoArrByKey(arr1, arr2, keyName) {
+        return this.objArrayDuplicateByKey([].concat(arr1, arr2), keyName)
+    }
+}
