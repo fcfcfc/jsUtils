@@ -1,6 +1,6 @@
 {
   "name": "@fcfc1992/js-utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "js utils",
   "private": false,
   "main": "main.js",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/fcfcfc/jsUtils/issues"
   },
-  "homepage": "https://github.com/fcfcfc/jsUtils#readme"
+  "homepage": "https://github.com/fcfcfc/jsUtils#readme",
+  "dependencies": {
+    "element-ui": "^2.13.2",
+    "sortablejs": "^1.10.2"
+  }
 }
