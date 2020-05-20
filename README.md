@@ -12,9 +12,16 @@
 $ npm install --save @fcfc1992/js-utils
 ```  
 ## 使用  
+#### 在Vue项目中使用
 ```sh
 import Main from '@fcfc1992/js-utils';
 Main.functionName();
+```  
+#### 以JS文件方式引用
+```sh
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<script src="js-utils-common/lib/main.js"></script>
+window.myJsUtils.functionName()
 ```  
 ## 方法  
 ### 数组相关方法  
