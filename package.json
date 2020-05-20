@@ -5,7 +5,8 @@
   "private": false,
   "main": "src/main.js",
   "scripts": {
-    "test": "echo name"
+    "unPublish": "npm unpublish --force",
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",
