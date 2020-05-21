@@ -9,7 +9,7 @@
     - [getCountOccurrences获取数组中某一项出现的次数](#getcountoccurrencesarr-item-index)  
 ## 安装  
 ```sh
-$ npm install --save @fcfc1992/js-utils
+$ npm install --save js-utils-common
 ```  
 ## 使用  
 #### 在Vue项目中使用
