@@ -6,7 +6,8 @@
 - [方法](#方法)  
   - [数组相关方法](#数组相关方法)   
     - [sliceArrByNum分割数组](#slicearrbynumarr-num)  
-    - [getCountOccurrences获取数组中某一项出现的次数](#getcountoccurrencesarr-item-index)  
+    - [getCountOccurrences获取数组中某一项出现的次数](#getcountoccurrencesarr-item-index)
+- [写在最后](#写在最后)  
 ## 安装  
 ```sh
 $ npm install --save js-utils-common
@@ -40,7 +41,6 @@ console.log(returnArr); //[[1,2,3],[4]]
 ```  
 - *注意事项*  
 1. 此方法仅适用于简单数组  
----
 #### ***getCountOccurrences(arr, item, index)***  
 - *方法介绍*  
 根据传入的项目和获取数组中某一项出现的次数，只记和它相邻的次数  
@@ -56,4 +56,8 @@ console.log(returnArr); //[[1,2,3],[4]]
 ```  
 - *注意事项*  
 1. 此方法仅适用于简单数组  
----
+## 写在最后  
+个人开发和维护，有需求或者bug请联系我的邮箱，看到后会第一时间回复   
+Email：323247568@qq.com   
+![支持一下！](https://raw.githubusercontent.com/fcfcfc/myImg/master/wx.jpg)
+![支持一下！](https://raw.githubusercontent.com/fcfcfc/myImg/master/zfb.jpg)

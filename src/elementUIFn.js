@@ -54,12 +54,14 @@ export default {
      * @param inputValue 输入框的初始值
      * @param callback 点击确定后执行的方法，参数为输入框的值
      * @param cancelCallback
+     * @param placeholder
      */
-    myPrompt(title, inputValue = '', callback = () => {}, cancelCallback = () => {}) {
+    myPrompt(title, inputValue = '', callback = () => {}, cancelCallback = () => {}, placeholder = '') {
         return MessageBox.prompt(title, '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
             inputValue: inputValue,
+            inputPlaceholder: placeholder,
             callback: (status, vueObj) => {
                 let val = vueObj.$children[0].value;
                 if(status === 'confirm') {
