@@ -59,5 +59,5 @@ console.log(returnArr); //[[1,2,3],[4]]
 ## 写在最后  
 个人开发和维护，有需求或者bug请联系我的邮箱，看到后会第一时间回复   
 Email：323247568@qq.com   
-![支持一下！](https://raw.githubusercontent.com/fcfcfc/myImg/master/wx.jpg)
-![支持一下！](https://raw.githubusercontent.com/fcfcfc/myImg/master/zfb.jpg)
+<img src="https://raw.githubusercontent.com/fcfcfc/myImg/master/wx.jpg" width="250px"/>
+<img src="https://raw.githubusercontent.com/fcfcfc/myImg/master/zfb.jpg" width="250px"/>
