@@ -1,9 +1,8 @@
 import arrayFn from "./arrayFn";
 import elementUIFn from "./elementUIFn"
-import timeFn from "./timeFn";
+import timeFn from "./date";
 import checkFn from "./checkFn";
-import vueFn from "./vueFn";
 import otherFn from "./otherFn";
-const utils = Object.assign(arrayFn, elementUIFn, timeFn, checkFn, vueFn, otherFn);
+const utils = Object.assign(arrayFn, elementUIFn, timeFn, checkFn, otherFn);
 window.myJsUtils = utils;
 export default utils

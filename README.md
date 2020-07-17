@@ -15,7 +15,23 @@
     - [getStandardDeviation求给定数组的标准差（离散程度）](#getstandarddeviationarr)   
     - [getArrDifference两个数组对比取出不同的值](#getarrdifferencearra-arrb)    
     - [getDifFromToArrByKey获取与数组1中指定key的值不一样的数组2的项目集合](#getdiffromtoarrbykeyarr1-arr2-keyname)
-    - [getConcatFromTwoArrByKey根据指定的key获取两个数组的并集](#getconcatfromtwoarrbykeyarr1-arr2-keyname)            
+    - [getConcatFromTwoArrByKey根据指定的key获取两个数组的并集](#getconcatfromtwoarrbykeyarr1-arr2-keyname)
+  - [校验相关方法](#校验相关方法)        
+    - [checkMobile校验手机号](#checkmobilestr-ifnotshowalert)         
+    - [checkPassword校验密码](#checkpasswordstr-ifnotshowalert)    
+  - [ElementUI相关方法](#ElementUI相关方法)             
+    - [myAlert自定义alert](#myalertmsg-callback-tip)    
+    - [myConfirm自定义confirm](#myconfirmmsg-callback-cancelfn-confirmbuttontext-cancelbuttontext)
+    - [myPrompt自定义prompt](#myprompttitle-inputvalue-callback-cancelcallback-placeholder)
+    - [myToast自定义系统级通知的被动提醒toast](#mytoastmsg)        
+    - [myMessage自定义主动操作后的反馈提示toast](#mymessagemsg-offset-type-duration)
+    - [showloadingfn显示loading遮罩](#showloadingfn)         
+  - [Date相关方法](#Date相关方法)               
+     - [initDatePattern对Date的扩展pattern](#initdatepattern)          
+     - [getPreMonth获取指定日期的前一个月的日期](#getpremonthstr)    
+     - [getPastHalfYear获取指定日期的半年前的日期的时间戳](#getpasthalfyearstr)
+     - [getNowTimeType判断当前时间属于哪个时间段](#getnowtimetypetime)   
+     - [secondToDate秒转时分秒](#secondtodatesecond)                              
 - [写在最后](#写在最后)  
 ## 安装  
 ```sh
@@ -315,6 +331,201 @@ console.log(Main.getConcatFromTwoArrByKey(arr1, arr2, 'name'));
 1. 只适用于由Object构成的复杂数组
 2. 只要key对应的值相同，就当该项目重复
 3. 相同的子项，只保留arr1中最靠前的
+### 校验相关方法  
+#### ***checkMobile(str, ifNotShowAlert)***  
+- *示例*  
+```sh
+console.log(Main.checkMobile('18666666666')); //true
+```  
+- *方法介绍*  
+校验手机号，支持1[3456789]开头的号码
+- *参数介绍*  
+1. str：手机号字符串  
+2. ifNotShowAlert：设置为true，不弹窗提示校验错误  
+- *返回值*  
+校验成功返回true，失败false[Boolean]
+- *注意事项*  
+无
+#### ***checkPassword(str, ifNotShowAlert)***  
+- *示例*  
+```sh
+console.log(Main.checkPassword('12ssss3aa')); //true
+```  
+- *方法介绍*  
+校验密码，要求字母+数字长度8-16位
+- *参数介绍*  
+1. str：密码  
+2. ifNotShowAlert：设置为true，不弹窗提示校验错误  
+- *返回值*  
+校验成功返回true，失败false[Boolean]
+- *注意事项*  
+无
+### ElementUI相关方法  
+#### ***myAlert(msg, callback, tip)***  
+- *示例*  
+```sh
+Main.myAlert('12ssss3aa')
+```  
+- *方法介绍*  
+自定义alert
+- *参数介绍*  
+1. msg：alert的文字  
+2. callback：关掉alert后执行的方法  
+3. tip：提示语，默认为‘提示’   
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***myConfirm(msg, callback, cancelFn, confirmButtonText, cancelButtonText)***  
+- *示例*  
+```sh
+Main.myConfirm('12ssss3aa')
+```  
+- *方法介绍*  
+自定义confirm
+- *参数介绍*  
+1. msg：confirm的文字  
+2. callback：点击确定后执行的方法  
+3. cancelFn：点击取消后执行的方法   
+4. confirmButtonText：确定按钮的文字，默认为‘确定’   
+5. cancelButtonText：取消按钮的文字，默认为‘取消’   
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***myPrompt(title, inputValue, callback, cancelCallback, placeholder)***  
+- *示例*  
+```sh
+Main.myPrompt('12ssss3aa')
+```  
+- *方法介绍*  
+自定义prompt
+- *参数介绍*  
+1. title：标题  
+2. inputValue：输入框的初始值  
+3. callback：点击确定后执行的方法，参数为输入框的值   
+4. cancelCallback：点击取消后执行的方法，参数为输入框的值
+5. placeholder：输入框的占位符   
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***myToast(msg)***  
+- *示例*  
+```sh
+Main.myToast('12ssss3aa')
+```  
+- *方法介绍*  
+自定义toast，多用于系统级通知的被动提醒
+- *参数介绍*  
+1. msg：toast的文字  
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***myMessage(msg, offset, type, duration)***  
+- *示例*  
+```sh
+Main.myMessage('12ssss3aa')
+```  
+- *方法介绍*  
+自定义toast，常用于主动操作后的反馈提示
+- *参数介绍*  
+1. msg：toast消息     
+2. offset：距离窗口顶部的偏移量     
+3. type,：主题，默认success，可选值success/warning/info/error   
+4. duration：显示时间, 毫秒。设为 0 则不会自动关闭   
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***showLoadingFn()***  
+- *示例*  
+```sh
+Main.showLoadingFn()
+```  
+- *方法介绍*  
+显示loading遮罩
+- *参数介绍*  
+无
+- *返回值*  
+loading遮罩对象，可调用close方法关闭遮罩[Object]
+- *注意事项*  
+无
+### Date相关方法  
+#### ***initDatePattern()***  
+- *示例*  
+```sh
+Main.initDatePattern();
+console.log(new Date()).pattern("yyyy-MM-dd hh:mm:ss.S"); //2006-07-02 08:09:04.423
+console.log(new Date()).pattern("yyyy-MM-dd E HH:mm:ss"); //2009-03-10 二 20:09:04
+console.log(new Date()).pattern("yyyy-MM-dd EE hh:mm:ss"); //2009-03-10 周二 08:09:04
+console.log(new Date()).pattern("yyyy-MM-dd EEE hh:mm:ss"); //2009-03-10 星期二 08:09:04
+console.log(new Date()).pattern("yyyy-M-d h:m:s.S"); //2006-7-2 8:9:4.18
+```  
+- *方法介绍*  
+对Date的扩展，将 Date 转化为指定格式的String   
+月(M)、日(d)、12小时(h)、24小时(H)、分(m)、秒(s)、周(E)、季度(q)可以用 1-2 个占位符   
+年(y)可以用 1-4 个占位符   
+毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+- *参数介绍*  
+无
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***getPreMonth(str)***  
+- *示例*  
+```sh
+console.log(Main.getPreMonth('2016-03-30')); //2016-02-29
+```  
+- *方法介绍*  
+获取指定日期的前一个月的日期，默认为当天
+- *参数介绍*  
+1. str：可以被new Date()识别的日期格式的字符串  
+- *返回值*  
+前一个月的日期字符串，格式为yyyy-MM-dd[String]
+- *注意事项*  
+无
+#### ***getPastHalfYear(str)***  
+- *示例*  
+```sh
+console.log(Main.getPastHalfYear('2016-03-30')); //Tue Sep 29 2015 20:00:00 GMT+0800 (中国标准时间)
+```  
+- *方法介绍*  
+获取指定日期的半年前的日期的时间戳，默认为当前时间
+- *参数介绍*  
+1. str：可以被new Date()识别的日期格式的字符串  
+- *返回值*  
+半年前的日期的时间戳[Date]
+- *注意事项*  
+无
+#### ***getNowTimeType(time)***  
+- *示例*  
+```sh
+console.log(Main.getNowTimeType('2016-03-30 11:20:30')); //上午好！
+```  
+- *方法介绍*  
+判断当前时间属于哪个时间段
+- *参数介绍*  
+1. time：可以被new Date()识别的日期格式的字符串，默认为当前时间  
+- *返回值*  
+根据传入的时间，返回凌晨好,早上好,上午好,中午好,下午好,傍晚好,晚上好,夜里好[String]
+- *注意事项*  
+无
+#### ***secondToDate(second)***  
+- *示例*  
+```sh
+console.log(Main.secondToDate(210)); //{hour:"00",minute:"03",second:"30"}
+```  
+- *方法介绍*  
+秒转时分秒
+- *参数介绍*  
+1. second：秒数，正整数[Number]  
+- *返回值*  
+包含时、分、秒属性的对象{hour:"00",minute:"03",second:"30"}[Object]
+- *注意事项*  
+无
 ## 写在最后  
 个人开发和维护，有需求或者bug请联系我的邮箱，看到后会第一时间回复   
 Email：323247568@qq.com   

@@ -1,6 +1,6 @@
 {
   "name": "js-utils-common",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "常用的js方法，包含数组、elementUI、时间、校验、vue等相关方法",
   "private": false,
   "main": "lib/main.js",

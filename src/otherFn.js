@@ -197,6 +197,17 @@ export default {
         return false;
     },
     /**
+     * 在新窗口打开页面
+     * @param that 需要把this传进来
+     * @param pagePath router里定义的path
+     */
+    goToNextPage_newWindow(that, pagePath) {
+        let routeUrl = that.$router.resolve({
+            path: `/${pagePath}`
+        });
+        window.open(routeUrl.href, '_blank');
+    },
+    /**
      * 判断字符在另一个字符串中出现次数
      * @param reg 要判断的字符
      * @param str
