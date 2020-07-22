@@ -16,6 +16,7 @@
     - [getArrDifference两个数组对比取出不同的值](#getarrdifferencearra-arrb)    
     - [getDifFromToArrByKey获取与数组1中指定key的值不一样的数组2的项目集合](#getdiffromtoarrbykeyarr1-arr2-keyname)
     - [getConcatFromTwoArrByKey根据指定的key获取两个数组的并集](#getconcatfromtwoarrbykeyarr1-arr2-keyname)
+    - [objectDeepClone数组或对象的深度克隆](#objarrayduplicatebykeyarr-key)
   - [校验相关方法](#校验相关方法)        
     - [checkMobile校验手机号](#checkmobilestr-ifnotshowalert)         
     - [checkPassword校验密码](#checkpasswordstr-ifnotshowalert)    
@@ -31,7 +32,22 @@
      - [getPreMonth获取指定日期的前一个月的日期](#getpremonthstr)    
      - [getPastHalfYear获取指定日期的半年前的日期的时间戳](#getpasthalfyearstr)
      - [getNowTimeType判断当前时间属于哪个时间段](#getnowtimetypetime)   
-     - [secondToDate秒转时分秒](#secondtodatesecond)                              
+     - [secondToDate秒转时分秒](#secondtodatesecond)            
+  - [Number相关方法](#Number相关方法)          
+     - [numToChinesNum将正整数的数字转化为中文大写](#numtochinesnumnum)    
+     - [numToCharCode数字转化为大写字母](#numtocharcodenum)        
+     - [addZeroByLength根据传入的长度在数字前面补0](#addzerobylengthnum-length)
+  - [String相关方法](#String相关方法)             
+     - [getNumberOfAppearByString判断字符在字符串中出现的次数](#getnumberofappearbystringreg-str)     
+     - [getFileSuffix获取一个文件名字符串的后缀](#getfilesuffixname)
+  - [Window相关方法](#Window相关方法)        
+     - [getScrollTop返回页面的scrollTop](#getscrolltop)   
+     - [downloadBlobObject处理BLOB对象或者url的下载](#downloadblobobjectdata-filename-onlyurl)  
+     - [getBrowserName获取浏览器标识](#getbrowsername)      
+     - [getUrlData获取url的指定传入参数的值](#geturldatavariable)    
+     - [goToNextPage_newWindow将vue-router中的path在新窗口打开](#goToNextPage_newWindow)
+  - [其它方法](#其它方法)              
+     - [initMySortable初始化拖拽插件sortablejs](#initmysortableclassname-endfn-startfn)                                     
 - [写在最后](#写在最后)  
 ## 安装  
 ```sh
@@ -331,6 +347,19 @@ console.log(Main.getConcatFromTwoArrByKey(arr1, arr2, 'name'));
 1. 只适用于由Object构成的复杂数组
 2. 只要key对应的值相同，就当该项目重复
 3. 相同的子项，只保留arr1中最靠前的
+#### ***objectDeepClone(obj)***  
+- *示例*  
+```sh
+Main.objectDeepClone([]);
+```  
+- *方法介绍*  
+数组或对象的深度克隆
+- *参数介绍*  
+1. obj：数组或者对象[Object、Array]  
+- *返回值*  
+克隆好的新值[Object、Array]  
+- *注意事项*  
+无
 ### 校验相关方法  
 #### ***checkMobile(str, ifNotShowAlert)***  
 - *示例*  
@@ -526,6 +555,160 @@ console.log(Main.secondToDate(210)); //{hour:"00",minute:"03",second:"30"}
 包含时、分、秒属性的对象{hour:"00",minute:"03",second:"30"}[Object]
 - *注意事项*  
 无
+### Number相关方法  
+#### ***numToChinesNum(num)***  
+- *示例*  
+```sh
+console.log(Main.numToChinesNum(56)); //'五十六'
+```  
+- *方法介绍*  
+将正整数的数字转化为中文大写
+- *参数介绍*  
+1. num：要转换的数字[Number]  
+- *返回值*  
+对应的中文大写[String]
+- *注意事项*  
+无
+#### ***numToCharCode(num)***  
+- *示例*  
+```sh
+console.log(Main.numToCharCode(20)); //'U'
+```  
+- *方法介绍*  
+数字转化为大写字母，数字从0开始
+- *参数介绍*  
+1. num：要转换的数字，正整数[Number]  
+- *返回值*  
+对应的大写字母[String]
+- *注意事项*  
+超出字母表的数字时，返回对应的字符
+#### ***addZeroByLength(num, length)***  
+- *示例*  
+```sh
+console.log(Main.addZeroByLength(15, 7)); //'0000015'
+```  
+- *方法介绍*  
+根据传入的length，在传入的数字前面补0
+- *参数介绍*  
+1. num：要补0的数字，正数即可[Number]  
+2. length：补成几位数字，正整数[Number]  
+- *返回值*  
+补好位的字符串[String]
+- *注意事项*  
+无
+### String相关方法  
+#### ***getNumberOfAppearByString(reg, str)***  
+- *示例*  
+```sh
+console.log(Main.getNumberOfAppearByString('a', 'jashdjsabckjabsua')); //4
+```  
+- *方法介绍*  
+判断字符在字符串中出现的次数
+- *参数介绍*  
+1. reg：要判断的字符[String]  
+2. str：字符串[String]  
+- *返回值*  
+出现的次数[Number]
+- *注意事项*  
+无
+#### ***getFileSuffix(name)***  
+- *示例*  
+```sh
+console.log(Main.getFileSuffix('a.jpg')); //'jpg'
+```  
+- *方法介绍*  
+获取一个文件名字符串的后缀
+- *参数介绍*  
+1. name：文件名，需要带后缀[String]  
+- *返回值*  
+文件的后缀[String]
+- *注意事项*  
+无
+### Window相关方法  
+#### ***getScrollTop()***  
+- *示例*  
+```sh
+console.log(Main.getScrollTop()); //0
+```  
+- *方法介绍*  
+返回页面的scrollTop
+- *参数介绍*  
+无 
+- *返回值*  
+页面的scrollTop[Number]
+- *注意事项*  
+无
+#### ***downloadBlobObject(data, fileName, onlyUrl)***  
+- *示例*  
+```sh
+Main.downloadBlobObject();
+```  
+- *方法介绍*  
+处理BLOB对象或者url的下载
+- *参数介绍*  
+1. data：blob对象或者url链接[Object、String]  
+2. fileName：保存文件时的文件名，需要加上后缀[String]  
+3. onlyUrl：要下载的文件是否从url地址获取[Boolean]  
+- *返回值*  
+无
+- *注意事项*  
+无
+#### ***getBrowserName()***  
+- *示例*  
+```sh
+Main.getBrowserName();
+```  
+- *方法介绍*  
+获取浏览器标识
+- *参数介绍*  
+无
+- *返回值*  
+浏览器的标识：Opera，Firefox，Chrome，Safari，IE[String]
+- *注意事项*  
+无
+#### ***getUrlData(variable)***  
+- *示例*  
+```sh
+Main.getUrlData();
+```  
+- *方法介绍*  
+获取url的指定传入参数的值
+- *参数介绍*  
+1. variable：参数的key[String]  
+- *返回值*  
+对应key的值[String]
+- *注意事项*  
+无
+#### ***goToNextPage_newWindow(that, pagePath)***  
+- *示例*  
+```sh
+Main.goToNextPage_newWindow();
+```  
+- *方法介绍*  
+将vue-router中的path在新窗口打开
+- *参数介绍*  
+1. that：vue实例[Object]  
+2. pagePath：vue-router里定义的path[String]  
+- *返回值*  
+无
+- *注意事项*  
+无
+### 其它方法  
+#### ***initMySortable(className, endFn, startFn)***  
+- *示例*  
+```sh
+Main.initMySortable();
+```  
+- *方法介绍*  
+初始化拖拽插件sortablejs
+- *参数介绍*  
+1. className：拖拽的dom的class名[String]  
+2. endFn：拖拽结束后的回调方法[Function]  
+3. startFn：拖拽开始的回调方法[Function]  
+- *返回值*  
+sortablejs实例[Object]
+- *注意事项*  
+1. 初始化结束后，实例可以调用option方法进行设置，例如this.sortableObj.option('disabled', false)
 ## 写在最后  
 个人开发和维护，有需求或者bug请联系我的邮箱，看到后会第一时间回复   
 Email：323247568@qq.com   
