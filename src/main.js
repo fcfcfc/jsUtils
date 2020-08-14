@@ -8,4 +8,4 @@ import stringFn from "./stringFn";
 import windowFn from "./windowFn";
 const utils = Object.assign(arrayFn, elementUIFn, timeFn, checkFn, plugsFn, numberFn, stringFn, windowFn);
 window.myJsUtils = utils;
-export default utils
+export default utils;

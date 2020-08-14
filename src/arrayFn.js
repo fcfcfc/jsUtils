@@ -102,5 +102,5 @@ export default {
         }
 
         return deepCopy(obj);
-    },
+    }
 }

@@ -10,6 +10,14 @@ module.exports = {
         libraryTarget: 'umd'
     },
     module:{
+        rules: [{
+            test: /\.js$/,
+            include: [
+                path.resolve(__dirname, './src')
+            ],
+            exclude: /(node_modules|bower_components)/,
+            loader: "babel-loader",
+        }]
     },
     plugins:[
     ],
